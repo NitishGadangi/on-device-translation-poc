@@ -1,11 +1,9 @@
 import Foundation
 
-/// Base URL for the screen JSON. After pushing this repo to GitHub, replace the
-/// placeholder with your raw URL, e.g.
-/// "https://raw.githubusercontent.com/<user>/on-device-translation-poc/main/"
-/// Until then, keep the Debug panel's "offline data" toggle on.
+/// Base URL for the screen JSON, served from the repo's raw GitHub content.
+/// Each `Endpoint.path` ("api/<screen>.json") is appended to this.
 enum NetworkConfig {
-    static let rawBaseURL = "https://raw.githubusercontent.com/REPLACE_ME/on-device-translation-poc/main/"
+    static let rawBaseURL = "https://raw.githubusercontent.com/NitishGadangi/on-device-translation-poc/refs/heads/master/"
 }
 
 /// A screen's data source: a remote path plus a bundled JSON fallback.
