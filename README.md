@@ -27,7 +27,7 @@ With the toggle on, Korean-first screens render in English on-device — transla
 
 ### Demo
 
-<video src="https://github.com/NitishGadangi/on-device-translation-poc/raw/master/demo/complete-translation-demo.MP4" controls width="320"></video>
+https://github.com/user-attachments/assets/935223c7-82ee-4857-8d66-7899cfb2a5d4
 
 > If the player doesn't load inline, [view the screen recording](demo/complete-translation-demo.MP4).
 
