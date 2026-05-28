@@ -1,0 +1,30 @@
+{
+  "id": "post-001",
+  "title": "제주도 숨은 명소 BEST 7 🏝️",
+  "subtitle": "가이드북에 없는 진짜 제주를 만나는 방법",
+  "heroImageUrl": "https://picsum.photos/seed/jeju-hero/800/400",
+  "author": {
+    "name": "김민준",
+    "bio": "10년차 여행 작가. 전국 방방곡곡을 누비며 숨은 명소를 찾아다닙니다. Travel writer based in Seoul.",
+    "avatarUrl": "https://i.pravatar.cc/150?img=12"
+  },
+  "publishedAt": "2026-05-20T09:30:00Z",
+  "readMinutes": 6,
+  "blocks": [
+    { "type": "heading", "text": "들어가며", "attribution": null, "items": null, "language": null },
+    { "type": "paragraph", "text": "제주도는 매년 수많은 관광객이 찾는 인기 여행지입니다. 하지만 유명 관광지 외에도 현지인만 아는 숨은 명소가 많이 있습니다. 이번 글에서는 사람들이 잘 모르는 7곳을 차근차근 소개합니다.", "attribution": null, "items": null, "language": null },
+    { "type": "paragraph", "text": "특히 이른 아침에 방문하면 한적하게 풍경을 즐길 수 있어요. Pro tip: rent a car to reach these spots easily.", "attribution": null, "items": null, "language": null },
+    { "type": "heading", "text": "1. 비밀의 해변", "attribution": null, "items": null, "language": null },
+    { "type": "paragraph", "text": "협재 근처에 위치한 이 작은 해변은 에메랄드빛 바다와 하얀 모래사장이 일품입니다. 주차 공간이 협소하니 대중교통 이용을 추천합니다.", "attribution": null, "items": null, "language": null },
+    { "type": "quote", "text": "여행은 목적지가 아니라 그 과정에서 만나는 순간들이다.", "attribution": "익명의 여행자", "items": null, "language": null },
+    { "type": "heading", "text": "준비물 체크리스트", "attribution": null, "items": null, "language": null },
+    { "type": "bullet", "text": null, "attribution": null, "items": ["편한 운동화 👟", "자외선 차단제 (SPF 50+)", "여분의 보조 배터리", "Reusable water bottle", "현금 ₩50,000 정도"], "language": null },
+    { "type": "paragraph", "text": "아래는 추천 경로를 지도 앱에서 불러오는 간단한 예제 코드입니다.", "attribution": null, "items": null, "language": null },
+    { "type": "code", "text": "let request = MKDirections.Request()\nrequest.transportType = .automobile", "attribution": null, "items": null, "language": "swift" },
+    { "type": "paragraph", "text": "더 자세한 정보는 공식 관광 사이트를 참고하세요. 즐거운 여행 되세요! 🚗", "attribution": null, "items": null, "language": null }
+  ],
+  "relatedLinks": [
+    { "title": "제주 여행 완벽 가이드 2026", "url": "https://example.com/jeju-guide" },
+    { "title": "Best cafes in Jeju you must visit", "url": "https://example.com/jeju-cafes" }
+  ]
+}

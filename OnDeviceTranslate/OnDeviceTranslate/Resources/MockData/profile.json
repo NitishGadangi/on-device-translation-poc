@@ -1,0 +1,60 @@
+{
+  "name": "이서연",
+  "handle": "@seoyeon_dev",
+  "bio": "iOS 개발자 · 커피 ☕️ · 사진 📷 | Building delightful apps in Seoul",
+  "location": "서울, 대한민국",
+  "joinedAt": "2021-03-15T00:00:00Z",
+  "stats": { "posts": 142, "followers": 8900, "following": 312 },
+  "badges": ["인증된 개발자", "Top Contributor", "베타 테스터 🎖️"],
+  "comments": [
+    {
+      "id": "c1",
+      "author": "박지훈",
+      "text": "정말 유용한 글이에요! 자세한 설명 감사합니다 🙏",
+      "createdAt": "2026-05-21T10:12:00Z",
+      "likes": 12
+    },
+    {
+      "id": "c2",
+      "author": "Alex Kim",
+      "text": "This is exactly what I needed, thank you so much!",
+      "createdAt": "2026-05-21T11:30:00Z",
+      "likes": 5
+    },
+    {
+      "id": "c3",
+      "author": "田中さん",
+      "text": "とても参考になりました！次回も楽しみにしています。",
+      "createdAt": "2026-05-20T22:05:00Z",
+      "likes": 3
+    },
+    {
+      "id": "c4",
+      "author": "María",
+      "text": "¡Excelente trabajo! Muy útil para principiantes.",
+      "createdAt": "2026-05-20T18:47:00Z",
+      "likes": 2
+    },
+    {
+      "id": "c5",
+      "author": "أحمد",
+      "text": "شكرا جزيلا على هذه المعلومات القيمة جدا",
+      "createdAt": "2026-05-19T14:20:00Z",
+      "likes": 1
+    },
+    {
+      "id": "c6",
+      "author": "최유나",
+      "text": "와 이거 보고 바로 따라했는데 너무 좋아요 👍👍",
+      "createdAt": "2026-05-19T09:00:00Z",
+      "likes": 8
+    },
+    {
+      "id": "c7",
+      "author": "DevBot",
+      "text": "",
+      "createdAt": "2026-05-18T00:00:00Z",
+      "likes": 0
+    }
+  ]
+}
