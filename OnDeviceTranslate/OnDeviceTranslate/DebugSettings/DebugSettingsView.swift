@@ -13,6 +13,7 @@ struct DebugSettingsView: View {
                 translationSection
                 languageSection
                 dataSection
+                recordingSection
                 cacheSection
                 statsSection
                 logSection
@@ -81,6 +82,16 @@ struct DebugSettingsView: View {
                     .foregroundStyle(.secondary)
                     .textSelection(.enabled)
             }
+        }
+    }
+
+    private var recordingSection: some View {
+        Section {
+            Toggle("Show user taps", isOn: $settings.showTouches)
+        } header: {
+            Text("Screen Recording")
+        } footer: {
+            Text("Overlays a pointer that follows touches, so viewers of a screen recording can see where you tapped.")
         }
     }
 

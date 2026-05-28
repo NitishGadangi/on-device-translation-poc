@@ -5,6 +5,7 @@ struct OnDeviceTranslateApp: App {
     @StateObject private var coordinator: TranslationCoordinator
     @StateObject private var settings: DebugSettings
     @StateObject private var api: APIClient
+    @StateObject private var touchState = TouchIndicatorState()
 
     init() {
         let coordinator = TranslationCoordinator()
@@ -24,10 +25,12 @@ struct OnDeviceTranslateApp: App {
     var body: some Scene {
         WindowGroup {
             RootTabView()
+                .background(TranslationHostView(coordinator: coordinator))
+                .overlay { TouchIndicatorOverlay() }
                 .environmentObject(api)
                 .environmentObject(settings)
                 .environmentObject(coordinator)
-                .background(TranslationHostView(coordinator: coordinator))
+                .environmentObject(touchState)
                 .task {
                     await settings.refreshAvailability()
                     if settings.availability.allowsTranslation {

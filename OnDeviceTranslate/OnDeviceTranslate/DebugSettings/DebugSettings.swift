@@ -24,6 +24,7 @@ final class DebugSettings: ObservableObject {
     @Published var useCache: Bool { didSet { defaults.set(useCache, forKey: Keys.useCache) } }
     @Published var useOfflineData: Bool { didSet { defaults.set(useOfflineData, forKey: Keys.useOfflineData) } }
     @Published var showOriginal: Bool { didSet { defaults.set(showOriginal, forKey: Keys.showOriginal) } }
+    @Published var showTouches: Bool { didSet { defaults.set(showTouches, forKey: Keys.showTouches) } }
 
     /// Not persisted — live diagnostics for the Debug panel.
     @Published var lastStats: TranslationStats?
@@ -40,6 +41,7 @@ final class DebugSettings: ObservableObject {
         useCache = defaults.object(forKey: Keys.useCache) as? Bool ?? true
         useOfflineData = defaults.object(forKey: Keys.useOfflineData) as? Bool ?? true
         showOriginal = defaults.bool(forKey: Keys.showOriginal)
+        showTouches = defaults.bool(forKey: Keys.showTouches)
     }
 
     var resolvedSourceLanguage: Locale.Language? { sourceMode.language }
@@ -83,5 +85,6 @@ final class DebugSettings: ObservableObject {
         static let useCache = "debug.useCache"
         static let useOfflineData = "debug.useOfflineData"
         static let showOriginal = "debug.showOriginal"
+        static let showTouches = "debug.showTouches"
     }
 }
