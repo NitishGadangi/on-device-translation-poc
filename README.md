@@ -21,7 +21,24 @@ Translate everything **as it enters the app**, transparently:
 - Start with **Apple's on-device Translation framework**, but keep it behind a **provider abstraction** so another engine (e.g. Google ML Kit) can be dropped in later.
 - Everything is **on-device** and **off the main thread**; the UI just shows a normal loading state while a response is being translated.
 
-## 3. Final solution / How it works
+## 3. Final Solution
+
+With the toggle on, Korean-first screens render in English on-device — translated at the network layer, with no changes to feature code.
+
+### Demo
+
+<video src="https://github.com/NitishGadangi/on-device-translation-poc/raw/master/demo/complete-translation-demo.MP4" controls width="320"></video>
+
+> If the player doesn't load inline, [view the screen recording](demo/complete-translation-demo.MP4).
+
+### Before → After
+
+| Original | Translated |
+|:---:|:---:|
+| <img src="demo/before-translation-1.jpg" width="260"> | <img src="demo/after-translation-1.jpg" width="260"> |
+| <img src="demo/before-translation-2.jpg" width="260"> | <img src="demo/after-translation-2.jpg" width="260"> |
+
+## 4. How it works
 
 ```
 ViewModel ── APIClient.fetch<T>(endpoint)
@@ -50,7 +67,7 @@ Key design points:
 - **Grouping by detected language.** Apple's batch API can't mix source languages, so strings are grouped per detected language and translated one batch per language, with an in-memory cache.
 - **The SwiftUI-bound session bridge.** `TranslationSession` can only be obtained inside a view's `.translationTask`. A hidden, zero-size `TranslationHostView` at the app root vends sessions to a `@MainActor` `TranslationCoordinator`, which exposes a plain `async translate()` the network layer awaits. This keeps networking SwiftUI-agnostic and lets a non-SwiftUI provider drop in later.
 
-## 4. Project overview
+## 5. Project overview
 
 ```
 OnDeviceTranslate/OnDeviceTranslate/
@@ -73,7 +90,7 @@ api/                       feed.json · detail.json · profile.json  (raw-URL da
 
 The `Translation/` folder has no dependency on the app, networking, or debug code — only the Apple-specific corner imports `Translation`/SwiftUI. It can be lifted into a Swift package as-is.
 
-## 5. How to run
+## 6. How to run
 
 1. Open `OnDeviceTranslate/OnDeviceTranslate.xcodeproj` in Xcode 16+.
 2. **Select a physical iPhone/iPad** as the run destination. The Translation framework **does not work in the Simulator** — on the Simulator the app runs fine but the translation toggle is disabled with a warning.
@@ -81,7 +98,7 @@ The `Translation/` folder has no dependency on the app, networking, or debug cod
 4. Open the **Debug** tab → turn on **On-the-fly translation**. Feed / Detail / Profile now render in English.
 5. **Data source:** by default the app loads the **bundled** JSON (offline). To fetch live from GitHub, push this repo, set `NetworkConfig.rawBaseURL` in `Networking/Endpoint.swift` to your raw URL (e.g. `https://raw.githubusercontent.com/<user>/on-device-translation-poc/main/`), then turn **off** "Use offline (bundled) JSON" in the Debug tab.
 
-## 6. Constraints & gotchas
+## 7. Constraints & gotchas
 
 - **Real device required** — Apple's Translation framework does not run in the Simulator.
 - **`TranslationSession` is SwiftUI-bound** — hence the host-view + coordinator bridge.
@@ -89,7 +106,7 @@ The `Translation/` folder has no dependency on the app, networking, or debug cod
 - **First use downloads a language model** — needs network once; translation is on-device after.
 - Translation is **value-keyed**: identical source strings translate consistently across the response.
 
-## 7. Debug Settings
+## 8. Debug Settings
 
 - **On-the-fly translation** — master switch (disabled with a warning when unsupported).
 - **Provider** — Apple (live); Google ML Kit (future-scope stub).
@@ -101,11 +118,11 @@ The `Translation/` folder has no dependency on the app, networking, or debug cod
 
 All settings persist in `UserDefaults`.
 
-## 8. Edge cases covered (in the mock JSON)
+## 9. Edge cases covered (in the mock JSON)
 
 Pure Korean · Korean+English mixed in one string · Japanese / Chinese / Spanish / Arabic (RTL) · already-English (passes through untouched) · emoji · prices (`₩29,000`) · URLs and `imageUrl` (skipped) · IDs / slugs (skipped) · ISO dates (skipped) · empty strings · long paragraphs · nested arrays/objects · a code block.
 
-## 9. Future scope
+## 10. Future scope
 
 - Real **Google ML Kit** provider behind the same `TextTranslator` protocol.
 - Richer **language selection** and per-field overrides.
